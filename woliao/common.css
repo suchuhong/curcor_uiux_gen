@@ -74,4 +74,44 @@ button:active, .clickable:active, a:active, input[type="button"]:active {
 /* 统一边距管理 */
 .content-padding {
     padding: 16px;
+}
+
+/* 隐藏所有滚动条 */
+html, body, div, iframe, .app-container, .scroll-container {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+div::-webkit-scrollbar, 
+iframe::-webkit-scrollbar,
+.app-container::-webkit-scrollbar, 
+.scroll-container::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+/* 全局处理所有滚动容器 */
+* {
+    scrollbar-color: transparent transparent !important; /* Firefox */
+}
+
+/* 处理iframe中的滚动条 */
+iframe {
+    border: none !important;
+}
+
+/* 替代原生滚动的解决方案 */
+.custom-scroll {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    display: none;
 } 

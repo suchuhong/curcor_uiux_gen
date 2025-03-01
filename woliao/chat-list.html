@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我聊 - 消息列表</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
     <style>
         body {
             background-color: #121212;
@@ -19,20 +20,20 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
-    <div class="w-[360px] h-[780px] mx-auto overflow-hidden">
+    <div class="app-container">
         <!-- 顶部栏 -->
         <div class="glass p-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
-                <h2 class="font-bold text-lg">消息</h2>
+                <h2 class="font-bold text-lg no-select">消息</h2>
             </div>
             <div class="flex space-x-4">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
                 </div>
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                     </svg>
@@ -52,22 +53,22 @@
         
         <!-- 聊天分类标签 -->
         <div class="flex px-4 py-2 space-x-2">
-            <div class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 text-sm font-medium shadow-lg">
+            <div class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 text-sm font-medium shadow-lg no-select clickable">
                 全部
             </div>
-            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
                 未读
             </div>
-            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
                 群聊
             </div>
-            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+            <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
                 好友
             </div>
         </div>
         
         <!-- 聊天列表 -->
-        <div class="h-[564px] px-4 py-2 space-y-3 overflow-y-auto">
+        <div class="h-[564px] px-4 py-2 space-y-3 scroll-container">
             <!-- 聊天项1 -->
             <div class="glass p-3 rounded-xl flex items-center space-x-3 relative">
                 <div class="relative">
@@ -201,7 +202,7 @@
             </div>
         </div>
         
-        <!-- 底部导航 -->
+        <!-- 底部导航栏 -->
         <div class="glass p-2 flex justify-around">
             <div class="flex flex-col items-center py-2 px-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

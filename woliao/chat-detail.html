@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我聊 - 聊天详情</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
     <style>
         body {
             background-color: #121212;
@@ -22,28 +23,28 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
-    <div class="w-[360px] h-[780px] mx-auto overflow-hidden flex flex-col">
+    <div class="app-container flex flex-col">
         <!-- 顶部栏 -->
         <div class="glass p-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 clickable">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
                 <div class="flex items-center space-x-2">
                     <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
                     <div>
-                        <h2 class="font-bold text-sm">小美</h2>
-                        <p class="text-xs text-gray-400">在线</p>
+                        <h2 class="font-bold text-sm no-select">小美</h2>
+                        <p class="text-xs text-gray-400 no-select">在线</p>
                     </div>
                 </div>
             </div>
             <div class="flex space-x-4">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                 </div>
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                     </svg>
@@ -52,10 +53,10 @@
         </div>
         
         <!-- 聊天区域 -->
-        <div class="flex-1 p-4 space-y-4 overflow-y-auto">
+        <div class="flex-1 p-4 space-y-4 scroll-container">
             <!-- 日期分隔 -->
             <div class="flex justify-center">
-                <div class="glass px-3 py-1 rounded-full text-xs text-gray-300">
+                <div class="glass px-3 py-1 rounded-full text-xs text-gray-300 no-select">
                     今天 10:42
                 </div>
             </div>
@@ -112,7 +113,7 @@
         <!-- 输入区域 -->
         <div class="p-3 glass">
             <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -120,12 +121,12 @@
                 <div class="flex-1 px-4 py-2 glass rounded-full">
                     <input type="text" placeholder="发送消息..." class="w-full bg-transparent outline-none">
                 </div>
-                <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-500">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-blue-500 clickable">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

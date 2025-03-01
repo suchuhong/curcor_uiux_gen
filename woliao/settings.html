@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我聊 - 设置</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
     <style>
         body {
             background-color: #121212;
@@ -19,23 +20,23 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
-    <div class="w-[360px] h-[780px] mx-auto overflow-hidden">
+    <div class="app-container">
         <!-- 顶部栏 -->
         <div class="p-4 flex items-center space-x-3">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 clickable" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <h2 class="font-bold text-lg">设置</h2>
+            <h2 class="font-bold text-lg no-select">设置</h2>
         </div>
         
         <!-- 用户信息 -->
         <div class="px-4 py-2">
-            <div class="glass p-4 rounded-xl flex items-center justify-between">
+            <div class="glass p-4 rounded-xl flex items-center justify-between clickable">
                 <div class="flex items-center space-x-3">
                     <div class="w-16 h-16 rounded-xl bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
                     <div>
-                        <h3 class="font-bold">陈小明</h3>
-                        <p class="text-sm text-gray-400">ID: xiaoming123</p>
+                        <h3 class="font-bold no-select">陈小明</h3>
+                        <p class="text-sm text-gray-400 no-select">ID: xiaoming123</p>
                     </div>
                 </div>
                 <div>
@@ -47,7 +48,7 @@
         </div>
         
         <!-- 设置选项 -->
-        <div class="h-[620px] px-4 space-y-3 overflow-y-auto">
+        <div class="h-[620px] px-4 space-y-3 scroll-container">
             <div class="mt-4">
                 <h3 class="text-gray-400 text-sm font-medium px-2 mb-2">账户与安全</h3>
                 <div class="glass p-4 rounded-xl space-y-4">
@@ -194,7 +195,7 @@
             </div>
             
             <div class="mt-5 px-2">
-                <button class="w-full py-3 glass text-red-400 font-medium rounded-xl">
+                <button class="w-full py-3 glass text-red-400 font-medium rounded-xl clickable">
                     退出登录
                 </button>
             </div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我聊 - 个人资料</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
     <style>
         body {
             background-color: #121212;
@@ -19,16 +20,16 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
-    <div class="w-[360px] h-[780px] mx-auto overflow-hidden">
+    <div class="app-container">
         <!-- 顶部背景图 -->
         <div class="h-48 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1598550463415-d397fdddc3e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')">
-            <div class="absolute top-4 left-4 flex items-center space-x-2 glass px-3 py-1.5 rounded-full">
+            <div class="absolute top-4 left-4 flex items-center space-x-2 glass px-3 py-1.5 rounded-full clickable">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
-                <span class="text-sm">返回</span>
+                <span class="text-sm no-select">返回</span>
             </div>
-            <div class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center glass rounded-full">
+            <div class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center glass rounded-full clickable">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                 </svg>
@@ -41,27 +42,27 @@
                 <div class="flex space-x-4 items-center">
                     <div class="w-20 h-20 rounded-xl bg-cover bg-center border-4 border-gray-800" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
                     <div>
-                        <h2 class="text-xl font-bold">陈小明</h2>
-                        <p class="text-gray-400 text-sm">ID: xiaoming123</p>
+                        <h2 class="text-xl font-bold no-select">陈小明</h2>
+                        <p class="text-gray-400 text-sm no-select">ID: xiaoming123</p>
                     </div>
                 </div>
-                <div class="glass px-4 py-1.5 rounded-full text-sm text-blue-400">
+                <div class="glass px-4 py-1.5 rounded-full text-sm text-blue-400 clickable">
                     编辑
                 </div>
             </div>
             <p class="text-gray-300 text-sm">热爱生活，热爱探索新事物。前端开发工程师，业余摄影爱好者。</p>
             <div class="mt-4 flex space-x-4">
-                <div class="flex flex-col items-center">
-                    <span class="font-bold text-lg">128</span>
-                    <span class="text-xs text-gray-400">关注</span>
+                <div class="flex flex-col items-center clickable">
+                    <span class="font-bold text-lg no-select">128</span>
+                    <span class="text-xs text-gray-400 no-select">关注</span>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="font-bold text-lg">586</span>
-                    <span class="text-xs text-gray-400">粉丝</span>
+                <div class="flex flex-col items-center clickable">
+                    <span class="font-bold text-lg no-select">586</span>
+                    <span class="text-xs text-gray-400 no-select">粉丝</span>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="font-bold text-lg">64</span>
-                    <span class="text-xs text-gray-400">动态</span>
+                <div class="flex flex-col items-center clickable">
+                    <span class="font-bold text-lg no-select">64</span>
+                    <span class="text-xs text-gray-400 no-select">动态</span>
                 </div>
             </div>
         </div>
@@ -69,20 +70,20 @@
         <!-- 选项卡 -->
         <div class="px-4 mt-4">
             <div class="flex border-b border-gray-700">
-                <div class="flex-1 pb-2 text-center border-b-2 border-purple-500 text-purple-400 font-medium">
+                <div class="flex-1 pb-2 text-center border-b-2 border-purple-500 text-purple-400 font-medium clickable no-select">
                     动态
                 </div>
-                <div class="flex-1 pb-2 text-center text-gray-400">
+                <div class="flex-1 pb-2 text-center text-gray-400 clickable no-select">
                     收藏
                 </div>
-                <div class="flex-1 pb-2 text-center text-gray-400">
+                <div class="flex-1 pb-2 text-center text-gray-400 clickable no-select">
                     喜欢
                 </div>
             </div>
         </div>
         
         <!-- 动态内容 -->
-        <div class="h-[410px] px-4 py-4 space-y-4 overflow-y-auto">
+        <div class="h-[410px] px-4 py-4 space-y-4 scroll-container">
             <!-- 动态1 -->
             <div class="glass p-4 rounded-xl">
                 <div class="flex items-start space-x-3">
