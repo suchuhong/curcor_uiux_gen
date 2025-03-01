@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我聊 - 社交APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        .page-container {
+            width: 360px;
+            height: 780px;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .app-title {
+            background: linear-gradient(90deg, #FF6B6B, #6B66FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 min-h-screen p-4">
+    <div class="mx-auto max-w-7xl">
+        <h1 class="text-3xl font-bold text-center text-white my-8">【我聊】社交APP UI/UX 设计</h1>
+        
+        <div class="flex flex-wrap justify-center">
+            <!-- 登录页面 -->
+            <div class="page-container bg-gradient-to-br from-gray-900 to-gray-800">
+                <div class="p-8 h-full flex flex-col justify-between">
+                    <div class="mt-16 text-center">
+                        <h2 class="app-title text-5xl font-bold mb-3">我聊</h2>
+                        <p class="text-gray-400 text-sm">连接你的社交世界</p>
+                    </div>
+                    
+                    <div class="space-y-6 my-8">
+                        <div class="glass p-4">
+                            <input type="text" placeholder="手机号/用户名" class="w-full bg-transparent border-b border-gray-700 pb-2 focus:outline-none focus:border-purple-500 transition">
+                        </div>
+                        <div class="glass p-4">
+                            <input type="password" placeholder="密码" class="w-full bg-transparent border-b border-gray-700 pb-2 focus:outline-none focus:border-purple-500 transition">
+                        </div>
+                        <button class="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-xl font-medium text-white shadow-lg">
+                            登 录
+                        </button>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm text-gray-400 mb-8">
+                        <span>忘记密码?</span>
+                        <span class="text-purple-400">注册账号</span>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-4 mb-10">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center glass">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center glass">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center glass">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 主页/发现页 -->
+            <div class="page-container bg-gradient-to-br from-gray-900 to-gray-800">
+                <div class="h-full flex flex-col">
+                    <!-- 顶部栏 -->
+                    <div class="glass p-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                            <h2 class="font-bold text-lg">发现</h2>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 故事/动态圈 -->
+                    <div class="p-4">
+                        <div class="flex space-x-4 overflow-x-auto py-2">
+                            <div class="flex flex-col items-center space-y-1">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-0.5">
+                                    <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                </div>
+                                <span class="text-xs">小美</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-green-500 p-0.5">
+                                    <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                </div>
+                                <span class="text-xs">阿杰</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-red-500 p-0.5">
+                                    <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                </div>
+                                <span class="text-xs">小琳</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-blue-500 p-0.5">
+                                    <div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                </div>
+                                <span class="text-xs">文文</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <div class="w-16 h-16 rounded-full border-2 border-dashed border-gray-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                    </svg>
+                                </div>
+                                <span class="text-xs">添加</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 推荐内容 -->
+                    <div class="flex-1 px-4 space-y-4">
+                        <h3 class="font-bold text-md text-gray-300">热门推荐</h3>
+                        
+                        <!-- 推荐卡片1 -->
+                        <div class="glass p-4 rounded-xl">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between">
+                                        <h4 class="font-bold text-sm">陈小明</h4>
+                                        <span class="text-xs text-gray-400">2小时前</span>
+                                    </div>
+                                    <p class="text-sm text-gray-300 mt-1">今天去了新开的咖啡店，环境超级棒！推荐给大家 ☕</p>
+                                    <div class="rounded-xl overflow-hidden mt-3 h-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                    <div class="flex justify-between items-center mt-3">
+                                        <div class="flex space-x-4">
+                                            <div class="flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-xs">128</span>
+                                            </div>
+                                            <div class="flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                                </svg>
+                                                <span class="text-xs">36</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 推荐卡片2 -->
+                        <div class="glass p-4 rounded-xl">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between">
+                                        <h4 class="font-bold text-sm">李小敏</h4>
+                                        <span class="text-xs text-gray-400">昨天</span>
+                                    </div>
+                                    <p class="text-sm text-gray-300 mt-1">分享一首最近超喜欢的歌，单曲循环中...🎵</p>
+                                    <div class="glass mt-3 p-3 rounded-lg flex items-center space-x-3">
+                                        <div class="w-12 h-12 rounded-md bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                        <div>
+                                            <div class="text-sm font-medium">夏日漫步</div>
+                                            <div class="text-xs text-gray-400">城市之光乐队</div>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-3">
+                                        <div class="flex space-x-4">
+                                            <div class="flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-xs">256</span>
+                                            </div>
+                                            <div class="flex items-center space-x-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                                </svg>
+                                                <span class="text-xs">64</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 底部导航 -->
+                    <div class="glass p-2 flex justify-around">
+                        <div class="flex flex-col items-center py-2 px-4 rounded-xl bg-gradient-to-r from-purple-800 to-purple-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                            <span class="text-xs mt-1 text-purple-300">发现</span>
+                        </div>
+                        <div class="flex flex-col items-center py-2 px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                            <span class="text-xs mt-1 text-gray-500">消息</span>
+                        </div>
+                        <div class="flex flex-col items-center py-2 px-4 relative">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center absolute -top-8 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-xs mt-7 text-gray-500">发布</span>
+                        </div>
+                        <div class="flex flex-col items-center py-2 px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            <span class="text-xs mt-1 text-gray-500">动态</span>
+                        </div>
+                        <div class="flex flex-col items-center py-2 px-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <span class="text-xs mt-1 text-gray-500">我的</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 聊天列表页面 -->
+            <div class="page-container bg-gradient-to-br from-gray-900 to-gray-800">
+                <div class="h-full flex flex-col">
+                    <!-- 顶部栏 -->
+                    <div class="glass p-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                            <h2 class="font-bold text-lg">消息</h2>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </div>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center glass">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 搜索框 -->
+                    <div class="px-4 py-2">
+                        <div class="glass p-3 rounded-xl flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" placeholder="搜索聊天和好友" class="bg-transparent w-full outline-none text-sm">
+                        </div>
+                    </div>
+                    
+                    <!-- 聊天分类标签 -->
+                    <div class="flex px-4 py-2 space-x-2">
+                        <div class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 text-sm font-medium shadow-lg">
+                            全部
+                        </div>
+                        <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+                            未读
+                        </div>
+                        <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+                            群聊
+                        </div>
+                        <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300">
+                            好友
+                        </div>
+                    </div>
+                    
+                    <!-- 聊天列表 -->
+                    <div class="flex-1 px-4 py-2 space-y-3">
+                        <!-- 聊天项1 -->
+                        <div class="glass p-3 rounded-xl flex items-center space-x-3 relative">
+                            <div class="relative">
+                                <div class="w-12 h-12 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                                <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-xs">3</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h4 class="font-bold text-sm">小美</h4>
+                                    <span class="text-xs text-gray-400">09:42</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-1">
+                                    <p class="text-sm text-gray-400 truncate w-48">嗨，今天下午有空一起去看电影吗？</p>
+                                    <div class="w-5 h-5 rounded-full flex items-center justify-center bg-gray-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 聊天项2 -->
+                        <div class="glass p-3 rounded-xl flex items-center space-x-3 relative">
+                            <div class="relative">
+                                <div class="w-12 h-12 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h4 class="font-bold text-sm">阿杰</h4>
+                                    <span class="text-xs text-gray-400">昨天</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-1">
+                                    <p class="text-sm text-gray-400 truncate w-48">项目进展得怎么样了？有什么需要帮忙的吗</p>
+                                    <div class="w-5 h-5 rounded-full flex items-center justify-center bg-gray-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 聊天项3 - 群聊 -->
+                        <div class="glass p-3 rounded-xl flex items-center space-x-3 relative">
+                            <div class="relative">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                                    同学会
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-xs">12</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <h4 class="font-bold text-sm">高中同学会 <span class="text-xs text-gray-400">(24人)</span></h4>
+                                    <span class="text-xs text-gray-400">昨天</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-1">
+                                    <p class="text-sm text-gray-400 truncate w-48"><span class="text-blue-400">小王：</span>这周末聚会的地点已经确定了</p>
+                                    <div class="w-5 h-5 rounded-full flex items-center justify-center bg-gray-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
