@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* 防止拖拽问题 */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* 玻璃拟态效果 */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+}
+
+.dark .glass {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 容器固定尺寸 */
+.app-container {
+    width: 360px;
+    height: 780px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    /* 防止内容溢出导致的拖拽 */
+    overscroll-behavior: none;
+}
+
+/* 防止图像拖拽 */
+img, svg {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/* 可点击元素优化 */
+button, .clickable, a, input[type="button"] {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+}
+
+button:active, .clickable:active, a:active, input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+/* 滚动容器 */
+.scroll-container {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 隐藏所有滚动条 */
+html, body, div, iframe, .app-container, .scroll-container {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+div::-webkit-scrollbar, 
+iframe::-webkit-scrollbar,
+.app-container::-webkit-scrollbar, 
+.scroll-container::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+/* 背景渐变 */
+.bg-gradient-light {
+    background: linear-gradient(135deg, #f0f4ff 0%, #eef1ff 100%);
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+}
+
+/* 内容区域 - 防止滚动条出现 */
+.content-area {
+    max-height: 100%;
+    overflow: hidden;
+} 

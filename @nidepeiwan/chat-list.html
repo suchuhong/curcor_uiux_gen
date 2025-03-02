@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的陪玩 - 消息列表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366F1',
+                            DEFAULT: '#4F46E5',
+                            dark: '#4338CA'
+                        },
+                        secondary: {
+                            light: '#EC4899',
+                            DEFAULT: '#DB2777',
+                            dark: '#BE185D'
+                        }
+                    }
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="bg-gradient-light dark:bg-gradient-dark text-gray-900 dark:text-gray-100">
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="glass sticky top-0 z-10 px-4 py-3 flex items-center justify-between">
+            <h1 class="text-xl font-bold">消息</h1>
+            <div class="flex space-x-2">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="p-2 rounded-full clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <!-- 消息搜索 -->
+        <div class="px-4 py-3">
+            <div class="glass rounded-xl flex items-center px-3 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" placeholder="搜索聊天记录" class="ml-2 bg-transparent outline-none text-sm w-full">
+            </div>
+        </div>
+        
+        <!-- 消息分类 -->
+        <div class="px-4 pb-3 flex items-center space-x-3 overflow-x-auto hide-scrollbar">
+            <button class="px-3 py-1.5 bg-primary text-white text-sm rounded-full whitespace-nowrap clickable">全部消息</button>
+            <button class="px-3 py-1.5 glass text-sm rounded-full whitespace-nowrap clickable">未读消息</button>
+            <button class="px-3 py-1.5 glass text-sm rounded-full whitespace-nowrap clickable">已读消息</button>
+        </div>
+        
+        <!-- 消息列表 -->
+        <div class="px-4 py-3">
+            <div class="glass rounded-xl p-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full">
+                    <div>
+                        <h3 class="text-sm font-semibold">用户名</h3>
+                        <p class="text-xs text-gray-500">最后一条消息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

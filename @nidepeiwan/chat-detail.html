@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的陪玩 - 聊天详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366F1',
+                            DEFAULT: '#4F46E5',
+                            dark: '#4338CA'
+                        },
+                        secondary: {
+                            light: '#EC4899',
+                            DEFAULT: '#DB2777',
+                            dark: '#BE185D'
+                        }
+                    }
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="bg-gradient-light dark:bg-gradient-dark text-gray-900 dark:text-gray-100">
+    <div class="app-container">
+        <!-- 头部 -->
+        <header class="glass sticky top-0 z-10 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <button class="p-1 rounded-full clickable" onclick="window.history.back()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                    </div>
+                    <div>
+                        <h1 class="text-base font-bold">小小奶茶</h1>
+                        <span class="text-xs text-green-500">在线</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleDarkMode()" class="p-1.5 rounded-full clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="p-1.5 rounded-full clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        
+        <!-- 消息区域 -->
+        <div class="px-4 py-4 pb-24 space-y-4">
+            <!-- 时间标记 -->
+            <div class="flex justify-center">
+                <span class="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 glass rounded-full">今天 18:22</span>
+            </div>
+            
+            <!-- 对方消息 -->
+            <div class="flex">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                </div>
+                <div class="ml-2 max-w-[70%]">
+                    <div class="glass rounded-2xl rounded-tl-none p-3">
+                        <p class="text-sm">您好，我已收到您的预约请求，确认今晚8点开始陪玩英雄联盟，请准时上线~</p>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-2 mt-1">18:22</span>
+                </div>
+            </div>
+            
+            <!-- 对方消息2 -->
+            <div class="flex">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                </div>
+                <div class="ml-2 max-w-[70%]">
+                    <div class="glass rounded-2xl rounded-tl-none p-3">
+                        <p class="text-sm">您有什么特别想练习的英雄或位置吗？我可以针对性地给您提供一些建议和指导。</p>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-2 mt-1">18:23</span>
+                </div>
+            </div>
+            
+            <!-- 对方消息3：带图 -->
+            <div class="flex">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                </div>
+                <div class="ml-2 max-w-[70%]">
+                    <div class="glass rounded-2xl rounded-tl-none p-3">
+                        <div class="rounded-lg overflow-hidden mb-2">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-auto" alt="游戏截图">
+                        </div>
+                        <p class="text-sm">这是我最近在比赛中的表现，胜率还不错。我们可以一起配合尝试这套阵容。</p>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-2 mt-1">18:24</span>
+                </div>
+            </div>
+            
+            <!-- 我的消息 -->
+            <div class="flex justify-end">
+                <div class="mr-2 max-w-[70%]">
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-2xl rounded-tr-none p-3">
+                        <p class="text-sm">你好，我想练习一下射手位置，特别是金克斯和韦鲁斯</p>
+                    </div>
+                    <div class="flex justify-end">
+                        <span class="text-xs text-gray-500 mr-2 mt-1">18:26</span>
+                        <span class="text-xs text-green-500 mt-1">已读</span>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="我的头像">
+                </div>
+            </div>
+            
+            <!-- 我的消息2 -->
+            <div class="flex justify-end">
+                <div class="mr-2 max-w-[70%]">
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-2xl rounded-tr-none p-3">
+                        <p class="text-sm">对了，晚上8点我会准时在线，游戏ID：无敌小学生</p>
+                    </div>
+                    <div class="flex justify-end">
+                        <span class="text-xs text-gray-500 mr-2 mt-1">18:26</span>
+                        <span class="text-xs text-green-500 mt-1">已读</span>
+                    </div>
+                </div>
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="我的头像">
+                </div>
+            </div>
+            
+            <!-- 对方消息4 -->
+            <div class="flex">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                </div>
+                <div class="ml-2 max-w-[70%]">
+                    <div class="glass rounded-2xl rounded-tl-none p-3">
+                        <p class="text-sm">好的，我很擅长辅助位置，我们可以一起配合下路。金克斯和韦鲁斯都是不错的选择，我会帮你分析他们的优缺点和技巧要点。</p>
+                    </div>
+                    <span class="text-xs text-gray-500 ml-2 mt-1">18:28</span>
+                </div>
+            </div>
+            
+            <!-- 正在输入提示 -->
+            <div class="flex">
+                <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="w-full h-full object-cover" alt="头像">
+                </div>
+                <div class="ml-2 max-w-[70%]">
+                    <div class="glass rounded-2xl rounded-tl-none px-4 py-2">
+                        <div class="flex space-x-1">
+                            <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <div class="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 输入区域 -->
+        <div class="fixed bottom-0 left-0 right-0 max-w-[360px] mx-auto">
+            <div class="px-4 py-3 glass">
+                <div class="flex items-center">
+                    <button class="p-2 rounded-full clickable">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                    <div class="flex-1 mx-2">
+                        <div class="glass rounded-full px-4 py-2 flex items-center">
+                            <input type="text" placeholder="发送消息..." class="bg-transparent outline-none text-sm w-full">
+                        </div>
+                    </div>
+                    <button class="p-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white clickable">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- 快捷工具栏 -->
+                <div class="flex space-x-4 mt-3 pb-1 px-2">
+                    <button class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center clickable">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs mt-1 text-gray-500">照片</span>
+                    </button>
+                    <button class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center clickable">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs mt-1 text-gray-500">视频</span>
+                    </button>
+                    <button class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center clickable">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            </svg>
+                        </div>
+                        <span class="text-xs mt-1 text-gray-500">文件</span>
+                    </button>
+                    <button class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full glass flex items-center justify-center clickable">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs mt-1 text-gray-500">红包</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

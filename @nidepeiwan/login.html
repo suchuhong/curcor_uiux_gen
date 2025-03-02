@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的陪玩 - 登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366F1',
+                            DEFAULT: '#4F46E5',
+                            dark: '#4338CA'
+                        },
+                        secondary: {
+                            light: '#EC4899',
+                            DEFAULT: '#DB2777',
+                            dark: '#BE185D'
+                        }
+                    }
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .app-title {
+            background: linear-gradient(90deg, #6366F1, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gradient-light dark:bg-gradient-dark text-gray-900 dark:text-gray-100">
+    <div class="app-container flex flex-col justify-between">
+        <div class="absolute top-4 right-4">
+            <button onclick="toggleDarkMode()" class="p-2 glass rounded-full clickable">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+        
+        <div class="flex flex-col items-center justify-center h-full px-8">
+            <div class="w-full max-w-sm">
+                <div class="text-center mb-10">
+                    <h1 class="text-4xl font-bold app-title mb-2">你的陪玩</h1>
+                    <p class="text-gray-500 dark:text-gray-400">高品质游戏陪玩平台</p>
+                </div>
+                
+                <div class="glass rounded-2xl p-6 mb-6">
+                    <form action="discover.html" method="get">
+                        <div class="mb-4">
+                            <label for="phone" class="block text-sm font-medium mb-2">手机号码</label>
+                            <div class="glass flex items-center px-3 py-2 rounded-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                <input type="tel" id="phone" placeholder="请输入手机号码" class="flex-1 bg-transparent outline-none px-2 py-1">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="password" class="block text-sm font-medium mb-2">密码</label>
+                            <div class="glass flex items-center px-3 py-2 rounded-xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                                <input type="password" id="password" placeholder="请输入密码" class="flex-1 bg-transparent outline-none px-2 py-1">
+                            </div>
+                            <div class="flex justify-end mt-2">
+                                <a href="#" class="text-sm text-primary">忘记密码？</a>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-xl clickable">
+                            登录
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="text-center mb-8">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">还没有账号？<a href="register.html" class="text-primary font-medium">立即注册</a></p>
+                </div>
+                
+                <div class="relative mb-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                        <span class="px-3 bg-gradient-light dark:bg-gradient-dark text-gray-500 dark:text-gray-400 text-sm">其他登录方式</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-6">
+                    <button class="glass p-3 rounded-full clickable">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.51 11.678c-1.1982-.4422-2.0412-1.0982-2.5291-1.9681-.4871-.8698-.7311-1.8825-.7311-3.0379 0-1.1091.2068-2.0969.6211-2.9621.4139-.8659.995-1.5389 1.7431-2.0189.7478-.48 1.615-.72 2.6-.72 1.0211 0 1.9041.2189 2.6479.6561.7441.4379 1.321 1.0359 1.7321 1.793.4109.7569.6159 1.597.6159 2.5189 0 .9222-.2019 1.7641-.606
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
