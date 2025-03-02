@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语聊 - 创建语音房</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="dark bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
+    <div class="app-container">
+        <!-- 顶部栏 -->
+        <div class="p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3 clickable">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <h2 class="font-bold text-lg no-select">创建语音房</h2>
+            </div>
+            <button class="px-5 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full text-sm font-medium clickable">
+                创建
+            </button>
+        </div>
+        
+        <!-- 表单区域 -->
+        <div class="flex-1 p-4 space-y-4">
+            <!-- 封面图片 -->
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <div class="w-24 h-24 rounded-xl bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center shadow-lg clickable">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 房间名称 -->
+            <div class="glass p-4 rounded-xl space-y-2">
+                <label class="text-sm text-gray-400">房间名称</label>
+                <input type="text" placeholder="给你的语音房起个名字" class="w-full bg-transparent outline-none border-b border-gray-700 pb-2 focus:border-blue-500 transition">
+            </div>
+            
+            <!-- 房间类型 -->
+            <div class="glass p-4 rounded-xl space-y-2">
+                <label class="text-sm text-gray-400">房间类型</label>
+                <div class="grid grid-cols-3 gap-2 mt-2">
+                    <div class="px-4 py-2 rounded-lg bg-blue-900 bg-opacity-40 text-sm text-blue-300 text-center clickable">音乐</div>
+                    <div class="px-4 py-2 rounded-lg glass text-sm text-gray-300 text-center clickable">闲聊</div>
+                    <div class="px-4 py-2 rounded-lg glass text-sm text-gray-300 text-center clickable">情感</div>
+                    <div class="px-4 py-2 rounded-lg glass text-sm text-gray-300 text-center clickable">游戏</div>
+                    <div class="px-4 py-2 rounded-lg glass text-sm text-gray-300 text-center clickable">知识</div>
+                    <div class="px-4 py-2 rounded-lg glass text-sm text-gray-300 text-center clickable">其他</div>
+                </div>
+            </div>
+            
+            <!-- 房间介绍 -->
+            <div class="glass p-4 rounded-xl space-y-2">
+                <label class="text-sm text-gray-400">房间介绍</label>
+                <textarea placeholder="介绍一下你的语音房..." class="w-full h-24 bg-transparent resize-none outline-none border-b border-gray-700 pb-2 focus:border-blue-500 transition"></textarea>
+            </div>
+            
+            <!-- 标签 -->
+            <div class="glass p-4 rounded-xl space-y-2">
+                <label class="text-sm text-gray-400">添加标签 (最多3个)</label>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <div class="px-3 py-1 rounded-full bg-blue-900 bg-opacity-40 text-xs text-blue-300 flex items-center">
+                        <span>音乐</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <div class="px-3 py-1 rounded-full bg-purple-900 bg-opacity-40 text-xs text-purple-300 flex items-center">
+                        <span>分享</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <div class="px-3 py-1 rounded-full glass text-xs text-gray-300 flex items-center">
+                        <span>+ 添加标签</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 房间设置 -->
+            <div class="glass p-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-sm">允许观众自由上麦</div>
+                    <div class="w-12 h-6 bg-blue-500 rounded-full p-1 flex cursor-pointer">
+                        <div class="w-4 h-4 bg-white rounded-full transform translate-x-6"></div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="text-sm">公开房间</div>
+                    <div class="w-12 h-6 bg-blue-500 rounded-full p-1 flex cursor-pointer">
+                        <div class="w-4 h-4 bg-white rounded-full transform translate-x-6"></div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="text-sm">允许分享到动态</div>
+                    <div class="w-12 h-6 bg-gray-700 rounded-full p-1 flex cursor-pointer">
+                        <div class="w-4 h-4 bg-white rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

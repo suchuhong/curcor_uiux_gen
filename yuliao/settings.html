@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语聊 - 设置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="dark bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
+    <div class="app-container">
+        <!-- 顶部栏 -->
+        <div class="p-4 flex items-center space-x-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 clickable" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <h2 class="font-bold text-lg no-select">设置</h2>
+        </div>
+        
+        <!-- 用户信息 -->
+        <div class="px-4 py-2">
+            <div class="glass p-4 rounded-xl flex items-center justify-between clickable">
+                <div class="flex items-center space-x-3">
+                    <div class="w-16 h-16 rounded-xl bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div>
+                        <h3 class="font-bold no-select">小美</h3>
+                        <p class="text-sm text-gray-400 no-select">ID: xiaomei123</p>
+                    </div>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置选项 -->
+        <div class="h-[620px] px-4 space-y-3 scroll-container">
+            <div class="mt-4">
+                <h3 class="text-gray-400 text-sm font-medium px-2 mb-2">账户与安全</h3>
+                <div class="glass p-4 rounded-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <span>账号安全</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <span>隐私设置</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-2">
+                <h3 class="text-gray-400 text-sm font-medium px-2 mb-2">通用</h3>
+                <div class="glass p-4 rounded-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                </svg>
+                            </div>
+                            <span>消息通知</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                            <span>深色模式</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-400">开启</span>
+                            <div class="w-12 h-6 bg-blue-500 rounded-full p-1 flex cursor-pointer">
+                                <div class="w-4 h-4 bg-white rounded-full transform translate-x-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                                </svg>
+                            </div>
+                            <span>清空缓存</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                                </svg>
+                            </div>
+                            <span>语言</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-400">简体中文</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-2">
+                <h3 class="text-gray-400 text-sm font-medium px-2 mb-2">关于</h3>
+                <div class="glass p-4 rounded-xl space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-blue-400 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <span>关于语聊</span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

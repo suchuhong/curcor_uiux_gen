@@ -1,0 +1,117 @@
+/* 共享样式优化 */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    /* 防止边框拖拽问题 */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 容器固定尺寸，避免拖拉问题 */
+.app-container {
+    width: 360px;
+    height: 780px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    /* 防止内容溢出导致的拖拽 */
+    overscroll-behavior: none;
+}
+
+/* 防止图像拖拽 */
+img, svg {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/* 所有可点击元素的点击状态优化 */
+button, .clickable, a, input[type="button"] {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+}
+
+button:active, .clickable:active, a:active, input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+/* 使滚动更流畅 */
+.scroll-container {
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* 防止文本选择 */
+.no-select {
+    user-select: none;
+}
+
+/* 统一边距管理 */
+.content-padding {
+    padding: 16px;
+}
+
+/* 隐藏所有滚动条 */
+html, body, div, iframe, .app-container, .scroll-container {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+div::-webkit-scrollbar, 
+iframe::-webkit-scrollbar,
+.app-container::-webkit-scrollbar, 
+.scroll-container::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+/* 全局处理所有滚动容器 */
+* {
+    scrollbar-color: transparent transparent !important; /* Firefox */
+}
+
+/* 处理iframe中的滚动条 */
+iframe {
+    border: none !important;
+}
+
+/* 替代原生滚动的解决方案 */
+.custom-scroll {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    display: none;
+} 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语聊 - 全页面预览</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+        
+        .page-container {
+            width: 280px;
+            height: 600px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            margin: 15px;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+            /* 防止拖拽问题 */
+            user-select: none;
+            -webkit-user-drag: none;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        
+        .page-container:hover {
+            transform: scale(1);
+            box-shadow: 0 0 25px rgba(79, 70, 229, 0.6);
+            z-index: 10;
+        }
+        
+        .app-title {
+            background: linear-gradient(90deg, #4299E1, #9F7AEA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        iframe {
+            border: none !important;
+            width: 360px;
+            height: 780px;
+            transform: scale(0.75);
+            transform-origin: 0 0;
+            pointer-events: none;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        
+        iframe::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+        
+        .page-label {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #4299E1, #9F7AEA);
+            padding: 8px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 0 0 24px 24px;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .page-container:hover .page-label {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .page-container::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+        
+        /* 响应式布局优化 */
+        @media (max-width: 1200px) {
+            .page-container {
+                width: 260px;
+                height: 550px;
+            }
+            
+            iframe {
+                transform: scale(0.7);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-container {
+                width: 230px;
+                height: 500px;
+            }
+            
+            iframe {
+                transform: scale(0.65);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="app-title text-5xl font-bold text-center my-8">语聊 · 全页面预览</h1>
+        <p class="text-center text-gray-400 mb-10">深色玻璃态UI设计 · 现代语音聊天应用界面</p>
+        
+        <div class="flex flex-wrap justify-center">
+            <!-- 1. 登录页面 -->
+            <div class="page-container">
+                <iframe src="login.html" title="登录页面" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">登录页面</div>
+            </div>
+            
+            <!-- 2. 发现页面 -->
+            <div class="page-container">
+                <iframe src="discover.html" title="发现页面" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">发现页面</div>
+            </div>
+            
+            <!-- 3. 语音房列表 -->
+            <div class="page-container">
+                <iframe src="room-list.html" title="语音房列表" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">语音房列表</div>
+            </div>
+            
+            <!-- 4. 语音房详情 -->
+            <div class="page-container">
+                <iframe src="room-detail.html" title="语音房详情" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">语音房详情</div>
+            </div>
+            
+            <!-- 5. 创建语音房 -->
+            <div class="page-container">
+                <iframe src="create-room.html" title="创建语音房" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">创建语音房</div>
+            </div>
+            
+            <!-- 6. 个人资料 -->
+            <div class="page-container">
+                <iframe src="profile.html" title="个人资料" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">个人资料</div>
+            </div>
+            
+            <!-- 7. 设置 -->
+            <div class="page-container">
+                <iframe src="settings.html" title="设置" loading="lazy" scrolling="no"></iframe>
+                <div class="page-label">设置</div>
+            </div>
+        </div>
+        
+        <div class="mt-10 glass p-6 max-w-3xl mx-auto">
+            <h2 class="text-xl font-bold mb-4">设计特点与优化：</h2>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>玻璃态(Glassmorphism)设计语言，提供现代感和深度</li>
+                <li>音频可视化效果，带动态波纹展示正在讲话的用户</li>
+                <li>深色主题，减少夜间使用的视觉疲劳</li>
+                <li>色彩鲜明的标签和按钮，增强视觉层次感</li>
+                <li>一致的设计元素和导航，确保良好的用户体验</li>
+                <li>基于Tailwind CSS实现的响应式布局</li>
+                <li>触控优化，更适合移动设备</li>
+                <li>动态效果展示，如波纹、脉动等，增强交互体验</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="text-center text-gray-500 mt-10 pb-5">
+        <p>语聊应用 UI/UX 设计 © 2023</p>
+    </footer>
+</body>
+</html> 
