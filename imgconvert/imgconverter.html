@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImgConverter - 图片转换器应用预览</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            
+            // 更新所有iframe的暗色模式
+            document.querySelectorAll('iframe').forEach(iframe => {
+                try {
+                    if (document.documentElement.classList.contains('dark')) {
+                        iframe.contentDocument.documentElement.classList.add('dark');
+                    } else {
+                        iframe.contentDocument.documentElement.classList.remove('dark');
+                    }
+                } catch (e) {
+                    console.log('无法访问iframe: ', e);
+                }
+            });
+        }
+        
+        // 初始主题设置
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // 页面加载完成后处理iframe
+        document.addEventListener('DOMContentLoaded', () => {
+            // 处理iframe加载
+            document.querySelectorAll('iframe').forEach(iframe => {
+                iframe.onload = function() {
+                    try {
+                        // 同步暗色模式
+                        if (document.documentElement.classList.contains('dark')) {
+                            iframe.contentDocument.documentElement.classList.add('dark');
+                        }
+                        
+                        // 调整iframe内容
+                        const body = iframe.contentDocument.body;
+                        if (body) {
+                            body.style.overflow = 'hidden';
+                            body.style.height = '100%';
+                            body.style.margin = '0';
+                            body.style.padding = '0';
+                        }
+                    } catch (e) {
+                        console.log('无法访问iframe: ', e);
+                    }
+                };
+            });
+        });
+    </script>
+    <style>
+        /* 重写styles.css中的body样式，允许imgconverter.html页面滚动 */
+        body {
+            min-height: 100vh;
+            max-height: none !important; /* 覆盖styles.css中的限制 */
+            overflow-y: auto !important; /* 允许垂直滚动 */
+        }
+        
+        /* 确保iframe容器仍然保持固定高度 */
+        .mockup-container {
+            height: 600px;
+        }
+        
+        @media (max-width: 768px) {
+            .mockup-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .mockup-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-slate-800 font-sans text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <header class="glass rounded-xl p-6 mb-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">
+                    ImgConverter UI/UX 设计
+                </h1>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">
+                    专业图片格式转换工具，支持PNG、JPG、WEBP、ICO、SVG等格式互转
+                </p>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="flex items-center">
+                    <button onclick="toggleDarkMode()" class="p-3 glass rounded-full hover:scale-105 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <a href="https://github.com/yourusername/imgconverter" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mb-12">
+            <!-- 首页 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">首页/登录</h2>
+                <div class="mockup-container glass">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <div class="mockup-dot mockup-dot-red"></div>
+                            <div class="mockup-dot mockup-dot-yellow"></div>
+                            <div class="mockup-dot mockup-dot-green"></div>
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">index.html</div>
+                        <div class="w-16"></div>
+                    </div>
+                    <iframe src="index.html" title="首页/登录"></iframe>
+                </div>
+            </div>
+            
+            <!-- 转换页面 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">图片转换</h2>
+                <div class="mockup-container glass">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <div class="mockup-dot mockup-dot-red"></div>
+                            <div class="mockup-dot mockup-dot-yellow"></div>
+                            <div class="mockup-dot mockup-dot-green"></div>
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">convert.html</div>
+                        <div class="w-16"></div>
+                    </div>
+                    <iframe src="convert.html" title="图片转换"></iframe>
+                </div>
+            </div>
+            
+            <!-- 历史记录 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">历史记录</h2>
+                <div class="mockup-container glass">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <div class="mockup-dot mockup-dot-red"></div>
+                            <div class="mockup-dot mockup-dot-yellow"></div>
+                            <div class="mockup-dot mockup-dot-green"></div>
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">history.html</div>
+                        <div class="w-16"></div>
+                    </div>
+                    <iframe src="history.html" title="历史记录"></iframe>
+                </div>
+            </div>
+            
+            <!-- 个人账户 -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">个人账户</h2>
+                <div class="mockup-container glass">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <div class="mockup-dot mockup-dot-red"></div>
+                            <div class="mockup-dot mockup-dot-yellow"></div>
+                            <div class="mockup-dot mockup-dot-green"></div>
+                        </div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">account.html</div>
+                        <div class="w-16"></div>
+                    </div>
+                    <iframe src="account.html" title="个人账户"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass rounded-xl p-8 mb-10">
+            <h2 class="text-2xl font-bold mb-6">技术特点</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">TailwindCSS</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">
+                        使用TailwindCSS构建响应式、现代化UI，代码简洁高效
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">响应式设计</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">
+                        在所有设备上提供一致的优质体验，从手机到桌面
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-16 h-16 bg-amber-100 dark:bg-amber-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">暗色模式</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">
+                        内置明暗主题切换功能，提供舒适的视觉体验
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center p-4">
+                    <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">玻璃拟态</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mt-2">
+                        采用现代玻璃态设计，增强UI质感与深度
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass rounded-xl p-8 mb-10">
+            <h2 class="text-2xl font-bold mb-6">项目概述</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3">产品介绍</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        ImgConverter是一款功能强大的图片格式转换工具，旨在为用户提供简单、快速、高质量的图片转换体验。支持多种图片格式之间的互相转换，包括PNG、JPG、WEBP、ICO、SVG等主流格式。
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        无论是网页设计师、前端开发者、UI/UX设计师还是普通用户，都能通过ImgConverter轻松完成图片格式转换需求，提高工作效率。
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold mt-6 mb-3">核心功能</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            多格式支持：支持常用图片格式间的互相转换
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            批量处理：同时转换多张图片，提高效率
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            自定义设置：调整图片尺寸、质量、压缩率等参数
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            ICO专属功能：支持生成多尺寸favicon图标
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            历史记录：保存转换历史，方便重复使用
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="rounded-xl overflow-hidden h-full">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&q=80&w=1000" alt="图片转换示例" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="glass rounded-xl p-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+                <div class="flex items-center space-x-3">
+                    <img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=128&h=128&fit=crop&crop=faces&auto=format&q=90" class="w-10 h-10 rounded-lg" alt="Logo">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">ImgConverter</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                        文档
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                        API
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                        关于我们
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                        联系方式
+                    </a>
+                </div>
+            </div>
+            <div class="text-gray-500 dark:text-gray-400 text-sm">
+                <p>© 2023 ImgConverter. 保留所有权利。</p>
+                <p class="mt-1">使用 Tailwind CSS 和现代 Web 技术构建</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

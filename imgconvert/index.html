@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImgConverter - 专业图片格式转换工具</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        
+        // 暗色模式切换
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        // 初始主题设置
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-slate-800 font-sans text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto px-4 py-6 h-screen max-h-screen flex flex-col">
+        <!-- 导航栏 -->
+        <nav class="glass rounded-xl p-4 mb-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=128&h=128&fit=crop&crop=faces&auto=format&q=90" class="w-10 h-10 rounded-lg" alt="Logo">
+                <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">ImgConverter</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-primary-500 transition-colors">关于我们</a>
+                <a href="#" class="hover:text-primary-500 transition-colors">帮助中心</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+                <a href="#" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors">登录</a>
+            </div>
+        </nav>
+        
+        <!-- 主要内容 -->
+        <div class="flex-1 flex flex-col lg:flex-row items-center gap-8">
+            <!-- 左侧介绍文字 -->
+            <div class="lg:w-1/2 space-y-6">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    专业图片格式转换工具<br>
+                    <span class="bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">简单、快速、高质量</span>
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    将图片转换为任何格式，支持PNG、JPG、WEBP、ICO、SVG等格式互转，无需安装软件，简单易用。
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="convert.html" class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg">
+                        立即开始转换
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-white dark:bg-gray-800 text-primary-500 rounded-lg font-medium border border-primary-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-400 transition-all">
+                        了解更多功能
+                    </a>
+                </div>
+                <!-- 功能亮点 -->
+                <div class="grid grid-cols-2 gap-4 pt-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium">批量转换</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">同时处理多张图片</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-green-100 dark:bg-green-900 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium">隐私保护</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">所有处理本地完成</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium">高速处理</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">快速完成转换任务</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-orange-100 dark:bg-orange-900 p-2 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium">多种格式</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">支持所有主流格式</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧图片 -->
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="glass rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&q=80&w=600" 
+                         alt="Image converter preview" class="w-full h-auto transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="glass rounded-xl p-4 mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>© 2023 ImgConverter. 保留所有权利。</p>
+        </footer>
+    </div>
+</body>
+</html>

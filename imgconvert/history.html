@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录 - ImgConverter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-slate-800 font-sans text-gray-800 dark:text-gray-100">
+    <div class="container mx-auto px-4 py-6 h-screen max-h-screen flex flex-col">
+        <!-- 导航栏 -->
+        <nav class="glass rounded-xl p-4 mb-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?w=128&h=128&fit=crop&crop=faces&auto=format&q=90" class="w-10 h-10 rounded-lg" alt="Logo">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 text-transparent bg-clip-text">ImgConverter</span>
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="convert.html" class="hover:text-primary-500 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    开始转换
+                </a>
+                <a href="account.html" class="hover:text-primary-500 transition-colors flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    我的账户
+                </a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- 主要内容 -->
+        <div class="flex-1 glass rounded-xl p-6 overflow-hidden flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-semibold">转换历史记录</h2>
+                <div class="flex space-x-2">
+                    <div class="relative">
+                        <input type="text" placeholder="搜索历史记录" class="glass pl-9 pr-4 py-2 rounded-lg text-sm w-60">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 absolute left-2 top-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <button class="px-3 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg text-sm transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 历史记录表格 -->
+            <div class="flex-1 overflow-hidden">
+                <div class="grid grid-cols-12 gap-4 font-medium text-sm p-3 border-b border-gray-200 dark:border-gray-700">
+                    <div class="col-span-5">文件名</div>
+                    <div class="col-span-2">转换类型</div>
+                    <div class="col-span-2">时间</div>
+                    <div class="col-span-2">状态</div>
+                    <div class="col-span-1">操作</div>
+                </div>
+                
+                <div class="overflow-y-auto" style="max-height: calc(100% - 40px);">
+                    <!-- 历史记录条目 -->
+                    <div class="grid grid-cols-12 gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-lg items-center text-sm">
+                        <div class="col-span-5 flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?w=48&h=48&fit=crop&auto=format&q=80" alt="Preview" class="w-10 h-10 rounded object-cover">
+                            <div>
+                                <p class="font-medium">banner-image.png</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">2.4 MB</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2">PNG → ICO</div>
+                        <div class="col-span-2 text-gray-500 dark:text-gray-400">2分钟前</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-xs">
+                                已完成
+                            </span>
+                        </div>
+                        <div class="col-span-1 flex space-x-2">
+                            <button class="text-gray-500 hover:text-primary-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-500 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-12 gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-lg items-center text-sm">
+                        <div class="col-span-5 flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=48&h=48&fit=crop&auto=format&q=80" alt="Preview" class="w-10 h-10 rounded object-cover">
+                            <div>
+                                <p class="font-medium">profile-photo.jpg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">1.1 MB</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2">JPG → PNG</div>
+                        <div class="col-span-2 text-gray-500 dark:text-gray-400">今天 14:30</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-xs">
+                                已完成
+                            </span>
+                        </div>
+                        <div class="col-span-1 flex space-x-2">
+                            <button class="text-gray-500 hover:text-primary-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-500 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-12 gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-lg items-center text-sm">
+                        <div class="col-span-5 flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?w=48&h=48&fit=crop&auto=format&q=80" alt="Preview" class="w-10 h-10 rounded object-cover">
+                            <div>
+                                <p class="font-medium">logo-design.svg</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">256 KB</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2">SVG → PNG</div>
+                        <div class="col-span-2 text-gray-500 dark:text-gray-400">昨天 10:15</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-xs">
+                                已完成
+                            </span>
+                        </div>
+                        <div class="col-span-1 flex space-x-2">
+                            <button class="text-gray-500 hover:text-primary-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-500 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-12 gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-lg items-center text-sm">
+                        <div class="col-span-5 flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1600577916048-804c9191e36c?w=48&h=48&fit=crop&auto=format&q=80" alt="Preview" class="w-10 h-10 rounded object-cover">
+                            <div>
+                                <p class="font-medium">background.webp</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">3.2 MB</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2">WEBP → JPG</div>
+                        <div class="col-span-2 text-gray-500 dark:text-gray-400">上周五</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-xs">
+                                已完成
+                            </span>
+                        </div>
+                        <div class="col-span-1 flex space-x-2">
+                            <button class="text-gray-500 hover:text-primary-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-500 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-12 gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors rounded-lg items-center text-sm">
+                        <div class="col-span-5 flex items-center space-x-3">
+                            <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=48&h=48&fit=crop&auto=format&q=80" alt="Preview" class="w-10 h-10 rounded object-cover">
+                            <div>
+                                <p class="font-medium">animation.gif</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">4.7 MB</p>
+                            </div>
+                        </div>
+                        <div class="col-span-2">GIF → WEBP</div>
+                        <div class="col-span-2 text-gray-500 dark:text-gray-400">06/23/2023</div>
+                        <div class="col-span-2">
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-xs">
+                                已完成
+                            </span>
+                        </div>
+                        <div class="col-span-1 flex space-x-2">
+                            <button class="text-gray-500 hover:text-primary-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                            <button class="text-gray-500 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分页控件 -->
+            <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="text-sm text-gray-500 dark:text-gray-400">显示 1-5 / 12 条记录</div>
+                <div class="flex space-x-2">
+                    <button class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="glass rounded-xl p-4 mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+            <p>© 2023 ImgConverter. 保留所有权利。</p>
+        </footer>
+    </div>
+</body>
+</html>
