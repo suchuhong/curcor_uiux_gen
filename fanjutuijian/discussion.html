@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番剧推荐 - 讨论区</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="dark bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
+    <div class="app-container">
+        <!-- 顶部栏 -->
+        <div class="glass p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                <h2 class="font-bold text-lg no-select">讨论区</h2>
+            </div>
+            <div class="flex space-x-4">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <div class="w-10 h-10 rounded-full flex items-center justify-center glass clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 分类标签 -->
+        <div class="p-4">
+            <div class="flex space-x-4 overflow-x-auto py-2 scroll-container">
+                <div class="px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-sm font-medium shadow-lg no-select clickable">
+                    热门
+                </div>
+                <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
+                    最新
+                </div>
+                <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
+                    官方
+                </div>
+                <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
+                    资讯
+                </div>
+                <div class="px-4 py-1.5 glass rounded-full text-sm font-medium text-gray-300 no-select clickable">
+                    剧透
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主题列表 -->
+        <div class="h-[616px] px-4 py-2 space-y-4 scroll-container">
+            <!-- 置顶主题 -->
+            <div class="glass p-4 rounded-xl space-y-3">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <h4 class="font-bold text-sm">官方账号</h4>
+                                <div class="px-2 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-xs font-medium">官方</div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-0.5">2023年7月新番导视</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs text-gray-400">1天前</span>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-xs text-gray-500">1.2k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass bg-opacity-20 p-3 rounded-lg flex space-x-3 items-center">
+                    <div class="flex-shrink-0 w-16 h-24 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1636157116054-82c912bd84ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div>
+                        <h5 class="font-medium text-sm">2023夏季番剧一览</h5>
+                        <p class="text-xs text-gray-400 mt-1 line-clamp-4">本季度将有超过20部新番开播，包括众多期待已久的续作。点击查看完整列表和放送时间安排。</p>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="text-xs text-gray-400">837</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            <span class="text-xs text-gray-400">346</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <span class="text-xs text-pink-400">置顶</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 讨论主题1 -->
+            <div class="glass p-4 rounded-xl space-y-3 clickable">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div>
+                            <h4 class="font-bold text-sm">动漫控</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">《咒术回战》第二季何时播出？</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs text-gray-400">3小时前</span>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-xs text-gray-500">128</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-300">听说《咒术回战》第二季要延期了？有没有官方消息？我等不及想看宿傩vs五条老师的战斗了！</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="text-xs text-gray-400">246</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            <span class="text-xs text-gray-400">58</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <div class="px-2 py-0.5 rounded-full bg-red-900 bg-opacity-40 text-xs text-red-300">热门</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 讨论主题2 -->
+            <div class="glass p-4 rounded-xl space-y-3 clickable">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div>
+                            <h4 class="font-bold text-sm">二次元女孩</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">盘点2023年不可错过的十部动漫</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs text-gray-400">1天前</span>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-xs text-gray-500">75</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-300">大家好，我整理了2023年必看的十部动漫推荐，包括续作和原创，希望对新入坑的朋友有帮助～</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="text-xs text-gray-400">187</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            <span class="text-xs text-gray-400">58</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <div class="px-2 py-0.5 rounded-full bg-red-900 bg-opacity-40 text-xs text-red-300">热门</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 讨论主题3 -->
+            <div class="glass p-4 rounded-xl space-y-3 clickable">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div>
+                            <h4 class="font-bold text-sm">动漫迷小李</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">《间谍过家家》第二季剧情走向预测</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs text-gray-400">2天前</span>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-xs text-gray-500">93</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-300">大家对《间谍过家家》第二季有什么期待？我猜测安妮亚的能力会被更多人知道，这会给家庭带来更多有趣的矛盾...</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="text-xs text-gray-400">118</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            <span class="text-xs text-gray-400">35</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <div class="px-2 py-0.5 rounded-full bg-orange-900 bg-opacity-40 text-xs text-orange-300">讨论</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 讨论主题4 -->
+            <div class="glass p-4 rounded-xl space-y-3 clickable">
+                <div class="flex justify-between items-start">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div>
+                            <h4 class="font-bold text-sm">月色如水</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">《来自深渊》电影版观后感</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs text-gray-400">1周前</span>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                            <span class="text-xs text-gray-500">56</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-300">这周终于看了《来自深渊 序章集之dawn》，太震撼了！剧场版画面和音乐都非常棒，但剧情真的很黑暗...</p>
+                <div class="flex justify-between items-center">
+                    <div class="flex space-x-3">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                            </svg>
+                            <span class="text-xs text-gray-400">98</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                            </svg>
+                            <span class="text-xs text-gray-400">27</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1">
+                        <div class="px-2 py-0.5 rounded-full bg-purple-900 bg-opacity-40 text-xs text-purple-300">影评</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部导航 -->
+        <div class="glass p-2 flex justify-around">
+            <div class="flex flex-col items-center py-2 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span class="text-xs mt-1 text-gray-500">发现</span>
+            </div>
+            <div class="flex flex-col items-center py-2 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
+                <span class="text-xs mt-1 text-gray-500">追番</span>
+            </div>
+            <div class="flex flex-col items-center py-2 px-4 rounded-xl bg-gradient-to-r from-pink-800 to-purple-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                </svg>
+                <span class="text-xs mt-1 text-pink-300">讨论</span>
+            </div>
+            <div class="flex flex-col items-center py-2 px-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span class="text-xs mt-1 text-gray-500">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

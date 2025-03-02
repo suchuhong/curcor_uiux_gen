@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番剧推荐 - 番剧详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        .anime-cover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="dark bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen">
+    <div class="app-container">
+        <!-- 顶部背景图 -->
+        <div class="h-60 bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'); background-position: center 30%;">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+            <div class="absolute top-4 left-4 flex items-center space-x-2 glass px-3 py-1.5 rounded-full clickable">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <span class="text-sm no-select">返回</span>
+            </div>
+            <div class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center glass rounded-full clickable">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+            </div>
+        </div>
+        
+        <!-- 番剧信息 -->
+        <div class="px-4 -mt-24 relative z-10">
+            <div class="flex space-x-4">
+                <div class="anime-cover w-32 h-48 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                <div class="pt-16">
+                    <h2 class="text-xl font-bold no-select">进击的巨人 最终季</h2>
+                    <p class="text-gray-400 text-sm no-select mt-1">2023 · 共16集</p>
+                    <div class="flex items-center mt-2">
+                        <div class="flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <span class="text-sm text-gray-400 ml-1">9.8 (35.6万人评价)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="flex space-x-3 mt-4">
+                <button class="flex-1 py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl font-medium text-white shadow-lg clickable">
+                    开始观看
+                </button>
+                <div class="w-12 h-12 glass rounded-xl flex items-center justify-center clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <div class="w-12 h-12 glass rounded-xl flex items-center justify-center clickable">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 番剧详情 -->
+        <div class="px-4 mt-6">
+            <div class="flex space-x-4 mb-4">
+                <div class="flex-1 glass p-3 rounded-xl flex flex-col items-center">
+                    <span class="text-xs text-gray-400">类型</span>
+                    <span class="text-sm font-medium mt-1">动作/奇幻</span>
+                </div>
+                <div class="flex-1 glass p-3 rounded-xl flex flex-col items-center">
+                    <span class="text-xs text-gray-400">制作</span>
+                    <span class="text-sm font-medium mt-1">MAPPA</span>
+                </div>
+                <div class="flex-1 glass p-3 rounded-xl flex flex-col items-center">
+                    <span class="text-xs text-gray-400">首播</span>
+                    <span class="text-sm font-medium mt-1">2023年1月</span>
+                </div>
+            </div>
+            
+            <!-- 标签页 -->
+            <div class="glass rounded-xl p-4 h-[364px] scroll-container">
+                <div class="flex border-b border-gray-700 mb-4">
+                    <div class="pb-2 px-4 text-center border-b-2 border-pink-500 text-pink-400 font-medium clickable no-select">
+                        简介
+                    </div>
+                    <div class="pb-2 px-4 text-center text-gray-400 clickable no-select">
+                        剧集
+                    </div>
+                    <div class="pb-2 px-4 text-center text-gray-400 clickable no-select">
+                        评论
+                    </div>
+                </div>
+                
+                <div class="text-sm text-gray-300 leading-relaxed">
+                    <p class="mb-3">《进击的巨人》最终季聚焦于艾伦·耶格尔与马莱，以及世界各国之间展开的最终决战。在获得始祖巨人之力并接触到过去的记忆后，艾伦决定发动"地鸣"，释放墙内所有的巨人进行"地鸣"，意图消灭墙外的所有人类，以保障岛内埃尔迪亚人的未来。</p>
+                    <p class="mb-3">人类与巨人的终极战争愈发激烈，艾伦的真实目的逐渐揭晓。米卡莎、阿尔敏等104期训练兵成员面临是否要阻止艾伦的艰难抉择。</p>
+                    <p>动画由MAPPA工作室制作，继承了前几季的高品质作画和紧张刺激的战斗场景，最终季将这部史诗级作品带向震撼人心的终结。</p>
+                </div>
+                
+                <div class="mt-4 flex space-x-1">
+                    <div class="px-2 py-0.5 rounded-full bg-red-900 bg-opacity-40 text-xs text-red-300">热血</div>
+                    <div class="px-2 py-0.5 rounded-full bg-blue-900 bg-opacity-40 text-xs text-blue-300">战斗</div>
+                    <div class="px-2 py-0.5 rounded-full bg-purple-900 bg-opacity-40 text-xs text-purple-300">神作</div>
+                    <div class="px-2 py-0.5 rounded-full bg-green-900 bg-opacity-40 text-xs text-green-300">剧情</div>
+                    <div class="px-2 py-0.5 rounded-full bg-yellow-900 bg-opacity-40 text-xs text-yellow-300">催泪</div>
+                </div>
+            </div>
+            
+            <!-- 相关推荐 -->
+            <div class="mt-4">
+                <h3 class="text-sm font-medium text-gray-400 mb-2">相关推荐</h3>
+                <div class="flex space-x-4 overflow-x-auto py-2 scroll-container">
+                    <div class="flex flex-col items-center space-y-2 w-24 clickable">
+                        <div class="anime-cover w-24 h-36 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="text-center">
+                            <h4 class="font-medium text-xs no-select">鬼灭之刃</h4>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 w-24 clickable">
+                        <div class="anime-cover w-24 h-36 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560972550-aba3456b5564?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="text-center">
+                            <h4 class="font-medium text-xs no-select">间谍过家家</h4>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 w-24 clickable">
+                        <div class="anime-cover w-24 h-36 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="text-center">
+                            <h4 class="font-medium text-xs no-select">咒术回战</h4>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 w-24 clickable">
+                        <div class="anime-cover w-24 h-36 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1580477667995-2b94f01c9516?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="text-center">
+                            <h4 class="font-medium text-xs no-select">魔法少女小圆</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

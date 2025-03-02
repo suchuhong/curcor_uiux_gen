@@ -1,0 +1,152 @@
+/* 共享样式优化 */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.light {
+    background-color: #f5f7fa;
+    color: #333333;
+}
+
+.glass {
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+body.dark .glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 容器固定尺寸，避免拖拉问题 */
+.app-container {
+    width: 360px;
+    height: 780px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    /* 防止内容溢出导致的拖拽 */
+    overscroll-behavior: none;
+}
+
+/* 防止图像拖拽 */
+img, svg {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/* 所有可点击元素的点击状态优化 */
+button, .clickable, a, input[type="button"] {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s ease;
+}
+
+button:active, .clickable:active, a:active, input[type="button"]:active {
+    transform: scale(0.98);
+}
+
+/* 使滚动更流畅 */
+.scroll-container {
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* 防止文本选择 */
+.no-select {
+    user-select: none;
+}
+
+/* 统一边距管理 */
+.content-padding {
+    padding: 16px;
+}
+
+/* 隐藏所有滚动条 */
+html, body, div, iframe, .app-container, .scroll-container {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+div::-webkit-scrollbar, 
+iframe::-webkit-scrollbar,
+.app-container::-webkit-scrollbar, 
+.scroll-container::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    display: none !important;
+    background: transparent !important;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* 主题颜色 - 深色模式 */
+body.dark {
+    --primary-color: #FF5C87;
+    --primary-light: #FF8CAF;
+    --secondary-color: #8C5CFF;
+    --accent-color: #5CE1FF;
+    --bg-color: #121212;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+/* 主题颜色 - 浅色模式 */
+body.light {
+    --primary-color: #FF5C87;
+    --primary-light: #FF8CAF;
+    --secondary-color: #8C5CFF;
+    --accent-color: #5CE1FF;
+    --bg-color: #f5f7fa;
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --text-color: #333333;
+    --text-secondary: rgba(51, 51, 51, 0.7);
+} 
