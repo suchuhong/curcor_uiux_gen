@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Detail - Mail App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 h-screen flex flex-col">
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="px-4 py-3 flex justify-between items-center">
+            <button class="text-blue-600">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="flex space-x-4">
+                <button class="text-gray-600">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                <button class="text-gray-600">
+                    <i class="fas fa-reply"></i>
+                </button>
+                <button class="text-gray-600">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Email Content -->
+    <div class="flex-1 overflow-auto">
+        <!-- Email Header -->
+        <div class="bg-white p-4">
+            <h1 class="text-xl font-semibold mb-4">项目进度报告</h1>
+            
+            <div class="flex items-start mb-4">
+                <img src="https://i.pravatar.cc/40?img=1" alt="Sender" class="w-10 h-10 rounded-full">
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold">张三</h3>
+                            <p class="text-sm text-gray-600">zhangsan@example.com</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm text-gray-500">今天 09:30</span>
+                            <button class="block text-gray-400 mt-1">
+                                <i class="fas fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-1">
+                        发送至：我
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Body -->
+        <div class="bg-white px-4 py-6">
+            <p class="text-gray-800 leading-relaxed">
+                各位好，
+                <br><br>
+                关于上周的项目进度，我们已经完成了主要功能的开发。以下是具体进展：
+                <br><br>
+                1. 用户界面优化
+                - 完成了主页布局调整
+                - 优化了移动端适配
+                - 新增了深色模式支持
+                <br><br>
+                2. 性能优化
+                - 减少了首页加载时间
+                - 优化了图片加载策略
+                - 改进了缓存机制
+                <br><br>
+                3. 下周计划
+                - 进行全面测试
+                - 准备发布文档
+                - 安排上线时间
+                <br><br>
+                如有任何问题，请随时与我联系。
+                <br><br>
+                最佳问候，<br>
+                张三
+            </p>
+        </div>
+
+        <!-- Attachments -->
+        <div class="bg-white mt-2 p-4 border-t border-gray-200">
+            <h3 class="text-sm font-semibold text-gray-600 mb-3">附件 (2)</h3>
+            <div class="space-y-3">
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                    <i class="fas fa-file-pdf text-red-500 text-xl"></i>
+                    <div class="ml-3 flex-1">
+                        <p class="text-sm font-medium">项目进度报告.pdf</p>
+                        <p class="text-xs text-gray-500">2.4 MB</p>
+                    </div>
+                    <button class="text-blue-600">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+                <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                    <i class="fas fa-file-excel text-green-500 text-xl"></i>
+                    <div class="ml-3 flex-1">
+                        <p class="text-sm font-medium">项目时间表.xlsx</p>
+                        <p class="text-xs text-gray-500">1.8 MB</p>
+                    </div>
+                    <button class="text-blue-600">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="bg-white border-t border-gray-200 p-4">
+        <div class="flex justify-between items-center">
+            <button class="flex items-center justify-center w-1/2 py-2 mr-2 bg-blue-600 text-white rounded-lg">
+                <i class="fas fa-reply mr-2"></i>
+                回复
+            </button>
+            <button class="flex items-center justify-center w-1/2 py-2 ml-2 bg-gray-100 text-gray-800 rounded-lg">
+                <i class="fas fa-reply-all mr-2"></i>
+                全部回复
+            </button>
+        </div>
+    </div>
+</body>
+</html> 

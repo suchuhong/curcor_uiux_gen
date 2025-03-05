@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Mail App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">收件箱</h1>
+            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                <i class="fas fa-edit"></i>
+            </button>
+        </div>
+        <!-- Search Bar -->
+        <div class="px-4 py-2">
+            <div class="relative">
+                <input type="search" placeholder="搜索邮件" class="w-full px-4 py-2 bg-gray-100 rounded-lg pl-10">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Email List -->
+    <div class="divide-y divide-gray-200">
+        <!-- Email Item 1 -->
+        <div class="px-4 py-3 bg-white hover:bg-gray-50">
+            <div class="flex items-center mb-1">
+                <img src="https://i.pravatar.cc/40?img=1" alt="Sender" class="w-10 h-10 rounded-full">
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-semibold">张三</h3>
+                        <span class="text-sm text-gray-500">09:30</span>
+                    </div>
+                    <p class="text-sm font-medium">项目进度报告</p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 line-clamp-2">关于上周的项目进度，我们已经完成了主要功能的开发...</p>
+        </div>
+
+        <!-- Email Item 2 -->
+        <div class="px-4 py-3 bg-white hover:bg-gray-50">
+            <div class="flex items-center mb-1">
+                <img src="https://i.pravatar.cc/40?img=2" alt="Sender" class="w-10 h-10 rounded-full">
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-semibold">李四</h3>
+                        <span class="text-sm text-gray-500">昨天</span>
+                    </div>
+                    <p class="text-sm font-medium">会议邀请</p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 line-clamp-2">邀请您参加下周三的产品评审会议...</p>
+        </div>
+
+        <!-- Email Item 3 -->
+        <div class="px-4 py-3 bg-white hover:bg-gray-50">
+            <div class="flex items-center mb-1">
+                <img src="https://i.pravatar.cc/40?img=3" alt="Sender" class="w-10 h-10 rounded-full">
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-semibold">王五</h3>
+                        <span class="text-sm text-gray-500">周一</span>
+                    </div>
+                    <p class="text-sm font-medium">设计稿确认</p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 line-clamp-2">新版本的UI设计稿已经完成，请查看并给出反馈...</p>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200">
+        <div class="flex justify-around py-2">
+            <a href="inbox.html" class="text-blue-600">
+                <i class="fas fa-inbox"></i>
+                <span class="text-xs block">收件箱</span>
+            </a>
+            <a href="folders.html" class="text-gray-600">
+                <i class="fas fa-folder"></i>
+                <span class="text-xs block">文件夹</span>
+            </a>
+            <a href="#" class="text-gray-600">
+                <i class="fas fa-address-book"></i>
+                <span class="text-xs block">联系人</span>
+            </a>
+            <a href="settings.html" class="text-gray-600">
+                <i class="fas fa-cog"></i>
+                <span class="text-xs block">设置</span>
+            </a>
+        </div>
+    </nav>
+</body>
+</html> 
