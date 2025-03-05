@@ -10,7 +10,7 @@ import ProgressBar from './components/ProgressBar';
 import AdvancedFilter from './components/AdvancedFilter';
 import { FilterOptions } from './components/AdvancedFilter';
 import { LogEntry, LogModule } from './types/LogTypes';
-import { parseLogFileInChunks, parseLogFile, groupLogsByModule, searchLogs } from './utils/logParser';
+import { parseLogFileInChunks, groupLogsByModule, searchLogs } from './utils/logParser';
 
 const App: React.FC = () => {
   const [modules, setModules] = useState<LogModule[]>([]);
@@ -32,19 +32,19 @@ const App: React.FC = () => {
     setFilteredLogs([]);
 
     try {
-      // 对于大文件使用分块处理
+      // 始终使用分块处理，但根据文件大小调整块大小
       const fileSize = new Blob([content]).size;
-      let logs: LogEntry[];
+      const chunkSize = fileSize > 5 * 1024 * 1024 ? 2000 : 5000; // 大文件用较小块
       
-      if (fileSize > 5 * 1024 * 1024) { // 5MB
-        logs = await parseLogFileInChunks(content, 2000, setProgress);
-      } else {
-        logs = parseLogFile(content);
-        setProgress(100);
-      }
+      const parseResult = await parseLogFileInChunks(
+        content, 
+        undefined, // 自动检测结构
+        chunkSize, 
+        (progress) => setProgress(progress)
+      );
       
-      setAllLogs(logs);
-      const groupedLogs = groupLogsByModule(logs);
+      setAllLogs(parseResult.entries);
+      const groupedLogs = groupLogsByModule(parseResult.entries);
       setModules(groupedLogs);
       
       if (groupedLogs.length > 0) {

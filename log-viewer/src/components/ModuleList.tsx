@@ -32,32 +32,35 @@ const ModuleList: React.FC<ModuleListProps> = ({
             <ListItemButton
               selected={module.name === selectedModule}
               onClick={() => onModuleSelect(module.name)}
+              sx={{ flexDirection: 'column', alignItems: 'flex-start' }}
             >
               <ListItemText
                 primary={module.name}
-                secondary={
-                  <Box sx={{ mt: 1, display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
-                    {Object.entries(module.stats).map(([level, count]) => (
-                      count > 0 && (
-                        <Chip
-                          key={level}
-                          label={`${level}: ${count}`}
-                          size="small"
-                          color={
-                            level === 'error'
-                              ? 'error'
-                              : level === 'warn'
-                              ? 'warning'
-                              : level === 'info'
-                              ? 'info'
-                              : 'default'
-                          }
-                        />
-                      )
-                    ))}
-                  </Box>
-                }
+                primaryTypographyProps={{
+                  sx: { width: '100%' }
+                }}
               />
+              
+              <Box sx={{ mt: 1, display: 'flex', gap: 0.5, flexWrap: 'wrap', alignSelf: 'flex-start' }}>
+                {Object.entries(module.stats).map(([level, count]) => (
+                  count > 0 && (
+                    <Chip
+                      key={level}
+                      label={`${level}: ${count}`}
+                      size="small"
+                      color={
+                        level === 'error'
+                          ? 'error'
+                          : level === 'warn'
+                          ? 'warning'
+                          : level === 'info'
+                          ? 'info'
+                          : 'default'
+                      }
+                    />
+                  )
+                ))}
+              </Box>
             </ListItemButton>
           </ListItem>
         ))}

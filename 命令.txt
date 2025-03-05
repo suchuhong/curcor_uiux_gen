@@ -1,0 +1,14 @@
+pake https://mp.weixin.qq.com/ --name "weixinggongzhongpingtai" --icon "E://A-AIlearn//pake-demo//wechat_apps_platform_icon_176097.ico" --hide-title-bar 
+
+pake https://mp.weixin.qq.com/ --name "weixingongzhonghaopingtai" --hide-title-bar 
+
+https://xiaobot.net/
+
+pake https://xiaobot.net/ --name "xiaobot" --hide-title-bar 
+
+默认icon
+D:\developmentTool\js\nvm\v22.14.0\node_modules\pake-cli\src-tauri\png\icon_256.ico
+
+pake https://mp.weixin.qq.com/ --name "微信公众平台" --icon /path/to/wechat_mp_icon.png --transparent --inject-css "body { backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.7); }"
+
+
