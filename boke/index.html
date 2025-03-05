@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播客 App 原型</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .phone-container {
+            width: 390px;
+            height: 844px;
+            border-radius: 55px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px;
+            border: 12px solid #1a1a1a;
+            display: inline-block;
+            background: #fff;
+        }
+        .status-bar {
+            height: 44px;
+            background-color: #000;
+            position: relative;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-size: 14px;
+        }
+        .dynamic-island {
+            width: 126px;
+            height: 37px;
+            background: #000;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -1px;
+            border-radius: 0 0 18px 18px;
+            z-index: 1000;
+        }
+        .phone-frame {
+            width: 100%;
+            height: calc(100% - 44px);
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="flex flex-wrap justify-center">
+        <!-- Home -->
+        <div class="phone-container shadow-2xl">
+            <div class="status-bar">
+                <div class="dynamic-island"></div>
+                <span>9:41</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            <div class="phone-frame">
+                <iframe src="pages/home.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Player -->
+        <div class="phone-container shadow-2xl">
+            <div class="status-bar">
+                <div class="dynamic-island"></div>
+                <span>9:41</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            <div class="phone-frame">
+                <iframe src="pages/player.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Podcast Detail -->
+        <div class="phone-container shadow-2xl">
+            <div class="status-bar">
+                <div class="dynamic-island"></div>
+                <span>9:41</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            <div class="phone-frame">
+                <iframe src="pages/podcast.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Profile -->
+        <div class="phone-container shadow-2xl">
+            <div class="status-bar">
+                <div class="dynamic-island"></div>
+                <span>9:41</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            <div class="phone-frame">
+                <iframe src="pages/profile.html"></iframe>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="phone-container shadow-2xl">
+            <div class="status-bar">
+                <div class="dynamic-island"></div>
+                <span>9:41</span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-signal"></i>
+                    <i class="fas fa-wifi"></i>
+                    <i class="fas fa-battery-full"></i>
+                </div>
+            </div>
+            <div class="phone-frame">
+                <iframe src="pages/settings.html"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
