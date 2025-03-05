@@ -11,6 +11,12 @@
 - 🎨 美观的 Material Design 界面
 - 🌈 不同日志级别的颜色区分
 - 📱 响应式设计，支持各种设备
+- 🌙 明暗主题切换
+- ⚡ 高性能虚拟滚动，支持大文件
+- 🕒 按时间范围筛选日志
+- 📤 导出过滤后的日志
+- 📊 模块分布图表和统计
+- 🔄 分批处理大型日志文件
 
 ## 快速开始
 
@@ -42,6 +48,7 @@ npm run build
 - 上传方式：
   - 点击上传区域选择文件
   - 直接拖放文件到上传区域
+- 支持大文件：应用会自动分批处理大型日志文件，显示进度条
 
 ### 2. 日志格式支持
 
@@ -78,6 +85,20 @@ TIMESTAMP [LEVEL] MODULE - MESSAGE
 
 ### 3. 界面功能
 
+#### 统计图表
+
+- 日志级别分布饼图
+- 模块日志数量条形图
+- 按日志级别细分的模块统计
+
+#### 高级筛选
+
+- 文本搜索：按关键词搜索
+- 时间范围：选择开始和结束时间
+- 日志级别：选择显示哪些级别的日志
+- 模块选择：选择要显示的模块
+- 筛选条件统计：显示已应用的筛选条件数量
+
 #### 模块列表（左侧边栏）
 
 - 显示所有检测到的日志模块
@@ -87,17 +108,21 @@ TIMESTAMP [LEVEL] MODULE - MESSAGE
 
 #### 日志查看器（主区域）
 
-- 表格式展示日志内容
+- 虚拟滚动表格，支持高效显示大量日志
+- 导出功能：将当前过滤后的日志导出为JSON
 - 列表项包含：
   - 时间戳
   - 日志级别（带颜色标识）
+  - 模块名称
   - 消息内容
   - 详细信息（可展开）
 - 搜索功能：
   - 支持按消息内容过滤
   - 支持按日志级别过滤
+  - 支持按模块名过滤
 - 特殊标记：
-  - 错误日志使用特殊背景色标注
+  - 错误日志使用特殊背景色和左侧边框标注
+  - 不同级别使用不同颜色边框
   - 包含详细信息的日志条目显示展开按钮
 
 ### 4. 日志级别说明
@@ -107,23 +132,15 @@ TIMESTAMP [LEVEL] MODULE - MESSAGE
 - 🔴 ERROR：错误信息
 - ⚪ DEBUG：调试信息
 
+### 5. 主题切换
+
+- 支持亮色和暗色主题
+- 根据系统主题自动切换
+- 可手动切换主题
+
 ## 示例日志
 
-### JSON 格式示例
-
-```json
-{"timestamp": "2024-01-20T10:15:30.123Z", "level": "info", "module": "UserService", "message": "User login successful", "details": {"userId": "123", "ip": "192.168.1.1"}}
-{"timestamp": "2024-01-20T10:15:31.456Z", "level": "error", "module": "DatabaseService", "message": "Connection failed", "details": {"error": "timeout"}}
-{"timestamp": "2024-01-20T10:15:32.789Z", "level": "warn", "module": "CacheService", "message": "Cache miss", "details": {"key": "user:123"}}
-```
-
-### 文本格式示例
-
-```
-2024-01-20T10:15:30.123Z [INFO] UserService - User login successful
-2024-01-20T10:15:31.456Z [ERROR] DatabaseService - Connection failed
-2024-01-20T10:15:32.789Z [WARN] CacheService - Cache miss
-```
+在 `src/assets/example.log` 中提供了示例日志文件，包含多种格式和不同模块的日志条目。
 
 ## 技术栈
 
@@ -131,8 +148,17 @@ TIMESTAMP [LEVEL] MODULE - MESSAGE
 - TypeScript
 - Material-UI (MUI)
 - Vite
-- React Dropzone
+- React Window (虚拟滚动)
+- React Dropzone (文件上传)
 - Recharts (图表可视化)
+- MUI X Date Pickers (日期选择器)
+
+## 性能优化
+
+- 虚拟滚动：高效渲染大量日志条目
+- 分批处理：大文件分块解析，避免界面卡顿
+- 记忆化组件：使用 React.memo 和 useCallback 减少重渲染
+- 懒加载：根据需要显示详细信息
 
 ## 浏览器支持
 
